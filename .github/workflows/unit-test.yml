@@ -1,6 +1,7 @@
 name: Test Slug Generator
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
   pull_request:

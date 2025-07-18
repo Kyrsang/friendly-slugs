@@ -1,8 +1,9 @@
 import { generateSlug } from '../src/main';
 
-test('should return a slug with three parts', () => {
-    const slug = generateSlug();
-    const parts = slug.split('-');
-    expect(parts.length).toBe(3);
-    parts.forEach(part => expect(typeof part).toBe('string'));
+test('should generate different slugs on repeated calls', () => {
+    const results = new Set<string>();
+    for (let i = 0; i < 100; i++) {
+        results.add(generateSlug());
+    }
+    expect(results.size).toBeGreaterThan(80);
 });
